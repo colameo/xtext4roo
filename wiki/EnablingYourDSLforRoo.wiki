@@ -74,6 +74,4 @@ osgi ps
 }}}
 From now on, de.saxsys.roo.xtext.XtextMetadata is provided for each file that has the suffix of your DSL and that is placed into some source directory of your Roo project.
 
-Now you can write some Metadata Listener for your DSL as shown in SomeDslExampleMetadataListener. While in the 
-
-example, only some logging is done, you likely want to to some code generation. Consult Spring Roo addon development documentation for more details on this. Also, you probably want to put your MetadataListener in some other addon than the DSL. 
+Now you can write some Metadata Listener for your DSL as shown in SomeDslExampleMetadataListener. While in the example, only some logging is done, you likely want to to some code generation. Consult Spring Roo addon development documentation for more details on this. Also, you probably want to put your MetadataListener in some other addon than the DSL. 
