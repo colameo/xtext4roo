@@ -1,6 +1,6 @@
 #summary Describes how to build xtext4roo and how to install it into your Roo shell
 
-Xtext4roo comes as one big OSGi bundle ([WhyOneBigBundle]) called xtext4roo-wrapper, which wraps:
+Xtext4roo comes as one big OSGi bundle called xtext4roo-wrapper, which wraps:
 
   * Xtext
   * EMF
@@ -23,4 +23,8 @@ mvn install
 {{{
 osgi install --url file:///{absolute path of xtext4roo-wrapper bundle jar}
 osgi framework command start {bundle id of  xtext4roo-wrapper bundle}
+}}}
+  # verify the bundle has been activated:
+{{{
+osgi ps
 }}}
