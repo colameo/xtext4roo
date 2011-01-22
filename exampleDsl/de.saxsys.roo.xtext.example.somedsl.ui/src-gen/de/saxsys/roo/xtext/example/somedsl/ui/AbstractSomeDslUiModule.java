@@ -48,11 +48,6 @@ public abstract class AbstractSomeDslUiModule extends DefaultUiModule {
 		binder.bind(org.eclipse.xtext.parser.antlr.ITokenDefProvider.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.HIGHLIGHTING)).to(org.eclipse.xtext.parser.antlr.AntlrTokenDefProvider.class);
 	}
 
-	// contributed by org.eclipse.xtext.generator.exporting.QualifiedNamesFragment
-	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.PrefixMatcher> bindPrefixMatcher() {
-		return org.eclipse.xtext.ui.editor.contentassist.FQNPrefixMatcher.class;
-	}
-
 	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
 	public void configureIResourceDescriptionsBuilderScope(com.google.inject.Binder binder) {
 		binder.bind(org.eclipse.xtext.resource.IResourceDescriptions.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.scoping.impl.AbstractGlobalScopeProvider.NAMED_BUILDER_SCOPE)).to(org.eclipse.xtext.builder.builderState.ShadowingResourceDescriptions.class);
@@ -71,6 +66,51 @@ public abstract class AbstractSomeDslUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
 	public Class<? extends org.eclipse.xtext.ui.editor.DocumentBasedDirtyResource> bindDocumentBasedDirtyResource() {
 		return org.eclipse.xtext.builder.impl.PersistentDataAwareDirtyResource.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public java.lang.ClassLoader bindClassLoaderToInstance() {
+		return getClass().getClassLoader();
+	}
+
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.common.types.access.ITypeProvider.Factory> bindITypeProvider$Factory() {
+		return org.eclipse.xtext.common.types.access.jdt.JdtTypeProviderFactory.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.common.types.xtext.AbstractTypeScopeProvider> bindAbstractTypeScopeProvider() {
+		return org.eclipse.xtext.common.types.xtext.ui.JdtBasedSimpleTypeScopeProvider.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.common.types.xtext.ui.ITypesProposalProvider> bindITypesProposalProvider() {
+		return org.eclipse.xtext.common.types.xtext.ui.ITypesProposalProvider.IScopableTypesProposalProvider.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.common.types.xtext.ui.ITypesProposalProvider.IScopableTypesProposalProvider> bindITypesProposalProvider$IScopableTypesProposalProvider() {
+		return org.eclipse.xtext.common.types.xtext.ui.JdtTypesProposalProvider.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.common.types.access.jdt.IJavaProjectProvider> bindIJavaProjectProvider() {
+		return org.eclipse.xtext.common.types.xtext.ui.XtextResourceSetBasedProjectProvider.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper> bindIHyperlinkHelper() {
+		return org.eclipse.xtext.common.types.xtext.ui.TypeAwareHyperlinkHelper.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.PrefixMatcher> bindPrefixMatcher() {
+		return org.eclipse.xtext.ui.editor.contentassist.FQNPrefixMatcher.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.AbstractJavaBasedContentProposalProvider.ReferenceProposalCreator> bindAbstractJavaBasedContentProposalProvider$ReferenceProposalCreator() {
+		return org.eclipse.xtext.common.types.xtext.ui.TypeAwareReferenceProposalCreator.class;
 	}
 
 	// contributed by org.eclipse.xtext.ui.generator.labeling.LabelProviderFragment
