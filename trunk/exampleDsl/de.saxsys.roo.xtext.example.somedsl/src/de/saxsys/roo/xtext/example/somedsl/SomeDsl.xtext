@@ -1,0 +1,14 @@
+grammar de.saxsys.roo.xtext.example.somedsl.SomeDsl with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
+
+generate someDsl "http://www.saxsys.de/roo/xtext/example/somedsl/SomeDsl"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!' (entity=[types::JvmType|FQN])?;
+	
+FQN:
+  ID ('.' ID)*;

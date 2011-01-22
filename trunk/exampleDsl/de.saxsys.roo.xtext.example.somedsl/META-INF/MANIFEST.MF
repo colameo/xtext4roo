@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.saxsys.roo.xtext.example.somedsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0
+Bundle-SymbolicName: de.saxsys.roo.xtext.example.somedsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;resolution:=optional,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ com.ibm.icu;resolution:=optional,
+ org.eclipse.xtext.xtend;resolution:=optional,
+ org.eclipse.xtext.util;resolution:=optional,
+ org.eclipse.emf.ecore;resolution:=optional,
+ org.eclipse.emf.ecore.xmi;resolution:=optional,
+ org.eclipse.emf.common;resolution:=optional,
+ org.antlr.runtime;resolution:=optional,
+ org.eclipse.xtext.common.types;resolution:=optional,
+ de.saxsys.roo.xtext4roo-wrapper;resolution:=optional
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: de.saxsys.roo.xtext.example.somedsl,
+ de.saxsys.roo.xtext.example.somedsl.services,
+ de.saxsys.roo.xtext.example.somedsl.someDsl,
+ de.saxsys.roo.xtext.example.somedsl.someDsl.impl,
+ de.saxsys.roo.xtext.example.somedsl.someDsl.util,
+ de.saxsys.roo.xtext.example.somedsl.parseTreeConstruction,
+ de.saxsys.roo.xtext.example.somedsl.parser.antlr,
+ de.saxsys.roo.xtext.example.somedsl.parser.antlr.internal,
+ de.saxsys.roo.xtext.example.somedsl.validation
