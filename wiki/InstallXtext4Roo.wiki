@@ -1,13 +1,15 @@
 #summary Describes how to build xtext4roo and how to install it into your Roo shell
 
-= Introduction =
+Xtext4roo comes as one big OSGi bundle ([WhyOneBigBundle]) called xtext4roo-wrapper, which wraps:
 
-Add your content here.
+  * Xtext
+  * EMF
+  * Google Guice
+  * Antlr
+  * other Xtext dependencies
 
+Additional, it contains classes that allow to integrate Xtext DSLs into Roo.
 
-= Details =
+The folowing steps describe how to install the xtext4roo-wrapper into your Sping Roo Shell:
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * checkout the project xtext4roo with svn
