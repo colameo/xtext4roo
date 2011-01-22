@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.saxsys.roo</groupId>
+	<artifactId>xtextdependencies</artifactId>
+	<version>1.0.1</version>
+	<packaging>eclipse-plugin</packaging>
+
+	<properties>
+		<version.tycho>0.10.0</version.tycho>
+	</properties>
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.sonatype.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${version.tycho}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${version.tycho}</version>
+				<configuration>
+					<resolver>p2</resolver>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>p2.eclipse.helios</id>
+			<url>http://download.eclipse.org/releases/helios</url>
+			<layout>p2</layout>
+		</repository>
+	</repositories>
+	
+</project>
