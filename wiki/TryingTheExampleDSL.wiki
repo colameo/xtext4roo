@@ -30,10 +30,12 @@ Hello Folks ! de.example.FooBar
 }}}
   # you should see some logging output now which shows that xtext4roo has regognized and parsed your file and provided the parsed content as XtextMetadata:
 {{{
-Xtext File event: [FileEvent@db28fc fileDetails = [FileDetails@5fea11 file = E:\roo\test\test.somedsl, exists = true, lastModified = 'Sun Jan 23 00:37:15 CET 2011'], operation = UPDATED, previousName = [null]]
+Xtext File event: [FileEvent@db28fc fileDetails = [FileDetails@5fea11 file = E:\roo\test\test.somedsl, exists = true, lastModified = 'Sun Jan 23 00:37:15 CET 2011'], operation = CREATED, previousName = [null]]
 Xtext File source path: ROOT, relative path: \test.somedsl
 Xtext Metadata ID:MID:de.saxsys.roo.xtext.XtextMetadata#somedsl#ROOT?test
 Notify: MID:de.saxsys.roo.xtext.XtextMetadata#somedsl#ROOT?test MID:de.saxsys.roo.xtext.example.somedsl.roo.SomeDslExampleMetadata
 Xtext Metadata File Identifier:E:\roo\test\test.somedsl
 Folks de.example.FooBar
 }}}
+    * the first line shows that Roo's file monitor has recognized the new file
+    *
