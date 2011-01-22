@@ -1,4 +1,4 @@
-#summary Describes the nesessary steps to deploy your Xtext DSL in Spring Roo.
+#summary Describes the nesessary steps to deploy your own Xtext DSL in Spring Roo.
 
 = The DSL Bundle =
 
