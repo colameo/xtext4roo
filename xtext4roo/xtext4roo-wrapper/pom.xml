@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.saxsys.roo</groupId>
+	<artifactId>xtext4roo-wrapper</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>bundle</packaging>
+	<name>xtext4roo-wrapper</name>
+	<organization>
+		<name>Saxonia Systems AG</name>
+	</organization>
+	<licenses>
+		<license>
+			<name>&gt;GNU General Public License (GPL), Version 3.0</name>
+			<url>http://www.gnu.org/copyleft/gpl.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<description>Wrapper to use XText + EMF in Felix and other non-Equinox OSGi containers</description>
+	<url>http://www.some.company</url>
+	<properties>
+		<roo.version>1.1.1.RELEASE</roo.version>
+
+	</properties>
+	<repositories>
+		<!-- spring-roo-repository contains only OSGi-verified JARs suitable for 
+			Roo core, Roo add-on and Roo-based user project usage. Those dependencies 
+			already in OSGi form (like Apache Felix) are automatically acquired from 
+			Maven Central. Non-OSGi items are wrapped via the "wrapping" module, with 
+			wrapping/pom.xml declaring a non-OSGi Maven repository. -->
+		<repository>
+			<id>spring-roo-repository</id>
+			<name>Spring Roo Repository</name>
+			<url>http://spring-roo-repository.springsource.org/release</url>
+		</repository>
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>p2.osgi.bundle</groupId>
+			<artifactId>org.antlr.runtime</artifactId>
+			<version>3.0.0.v200803061811</version>
+		</dependency>
+
+		<dependency>
+			<groupId>p2.osgi.bundle</groupId>
+			<artifactId>com.google.inject</artifactId>
+			<version>2.0.0.v201003051000</version>
+		</dependency>
+		<dependency>
+			<groupId>p2.osgi.bundle</groupId>
+			<artifactId>com.google.collect</artifactId>
+			<version>0.8.0.v201008251220</version>
+		</dependency>
+		<dependency>
+			<groupId>p2.osgi.bundle</groupId>
+			<artifactId>org.eclipse.xtext</artifactId>
+			<version>1.0.1.v201008251220</version>
+		</dependency>
+		<dependency>
+			<groupId>p2.osgi.bundle</groupId>
+			<artifactId>org.eclipse.xtext.common.types</artifactId>
+			<version>1.0.1.v201008251220</version>
+		</dependency>
+		<dependency>
+			<groupId>p2.osgi.bundle</groupId>
+			<artifactId>org.eclipse.xtext.util</artifactId>
+			<version>1.0.1.v201008251220</version>
+		</dependency>
+		<dependency>
+			<groupId>p2.osgi.bundle</groupId>
+			<artifactId>org.eclipse.emf.ecore</artifactId>
+			<version>2.6.1.v20100914-1218</version>
+		</dependency>
+		<dependency>
+			<groupId>p2.osgi.bundle</groupId>
+			<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+			<version>2.5.0.v20100521-1846</version>
+		</dependency>
+		<dependency>
+			<groupId>p2.osgi.bundle</groupId>
+			<artifactId>org.eclipse.emf.common</artifactId>
+			<version>2.6.0.v20100914-1218</version>
+		</dependency>
+		<dependency>
+			<groupId>aopalliance</groupId>
+			<artifactId>aopalliance</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.roo</groupId>
+			<artifactId>org.springframework.roo.project</artifactId>
+			<version>${roo.version}</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.roo</groupId>
+			<artifactId>org.springframework.roo.metadata</artifactId>
+			<version>${roo.version}</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.roo</groupId>
+			<artifactId>org.springframework.roo.classpath</artifactId>
+			<version>${roo.version}</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.roo</groupId>
+			<artifactId>org.springframework.roo.classpath.javaparser</artifactId>
+			<version>${roo.version}</version>
+			<type>bundle</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.roo</groupId>
+			<artifactId>org.springframework.roo.support</artifactId>
+			<version>${roo.version}</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.roo</groupId>
+			<artifactId>org.springframework.roo.process.manager</artifactId>
+			<version>${roo.version}</version>
+			<type>bundle</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.roo</groupId>
+			<artifactId>org.springframework.roo.model</artifactId>
+			<version>${roo.version}</version>
+			<type>bundle</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.roo</groupId>
+			<artifactId>org.springframework.roo.file.monitor</artifactId>
+			<version>${roo.version}</version>
+			<type>bundle</type>
+		</dependency>
+
+		<!-- Apache Felix -->
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<version>1.0-beta-6</version>
+			</extension>
+		</extensions>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.0</version>
+				<configuration>
+					<mavenExecutorId>forked-path</mavenExecutorId>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.0.1</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Export-Package></Export-Package>
+						<Import-Package>!com.google.*,!org.eclipse.emf.mwe.*,!org.eclipse.emf.mwe2.*,!org.eclipse.emf.codegen.*,!org.eclipse.core.*,!org.eclipse.xtend.*,!org.eclipse.internal.xtend.*,!com.sun.jdmk.*,!javax.mail.*,!org.antlr.*,!javax.swing.*,!javax.jms.*,!javax.management.*,*</Import-Package>
+
+						<_exportcontents>com.google.inject.*;version="2.0.0",org.antlr.runtime.*;version="3.0.0",*</_exportcontents>
+						<Embed-Dependency>*;scope=compile;type=!bundle</Embed-Dependency>
+
+
+						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Copyright>Copyright ${project.organization.name}. All
+							Rights Reserved.</Bundle-Copyright>
+						<Bundle-DocURL>${project.url}</Bundle-DocURL>
+					</instructions>
+
+					<remoteOBR>true</remoteOBR>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-scr-plugin</artifactId>
+				<version>1.4.2</version>
+				<executions>
+					<execution>
+						<id>generate-scr-scrdescriptor</id>
+						<goals>
+							<goal>scr</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<parseJavaDoc>false</parseJavaDoc>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>
