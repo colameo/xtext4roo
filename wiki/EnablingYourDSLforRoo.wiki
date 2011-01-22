@@ -8,7 +8,6 @@ workflow.
   * In the MANIFEST.mf, set all dependencies to optional. (otherwise there yould be required transitive dependencies to Equinox, which leads to bundle resolving errors in Apache Felix)
   * Add an optional require-bundle dependency  to xtext4roo-wrapper
   * The Require-Bundle section in the Manifest.MF of your Xtext language project should now look like this:
-
 {{{
 ...
 Require-Bundle: org.eclipse.xtext;resolution:=optional,
@@ -65,19 +64,15 @@ Now you will create a bundle that embeds your DSL jar and adds a class for regis
 
   * if not yet done, you should install xtext4roo-wrapper in your Roo Shell now
   * now you can install and activate the DSL by typing the following commands in your Roo Shell:
-
 {{{
 osgi install --url file:///{absolute path of your DSL-Roo-Interation bundle jar}
 osgi framework command start {bundle id of your DSL-Roo-Interation bundle}
 }}}
-
   * verify the new bundle is active by typing
 {{{
 osgi ps
 }}}
-From now on, de.saxsys.roo.xtext.XtextMetadata is provided for each file that has the suffix of your DSL and that 
-
-is placed into some source directory of your Roo project.
+From now on, de.saxsys.roo.xtext.XtextMetadata is provided for each file that has the suffix of your DSL and that is placed into some source directory of your Roo project.
 
 Now you can write some Metadata Listener for your DSL as shown in SomeDslExampleMetadataListener. While in the 
 
