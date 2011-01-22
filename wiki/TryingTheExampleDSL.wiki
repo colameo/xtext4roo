@@ -1,13 +1,28 @@
 #summary Describes how to build and install the example DSL.
 
-= Introduction =
+In exampleDsl directory you find a trivial DSL and its Roo integration. There is also a MetadataListener included, which shows some log output in the Roo shell, if DSL files are created or changed in the roo project.
 
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+To use the example DSL in Roo:
+  # if not done yet: [InstallXtext4Roo]. 
+  # in the source code, go to project exampleDsl/de.saxsys.roo.xtext.example.somedsl and build it with Maven 3 or above:
+{{{
+mvn install
+}}}
+  # now go to to exampleDsl/de.saxsys.roo.xtext.example.somedsl.roo and build it
+{{{
+mvn install
+}}}
+  # under target directory you now have the OSGi bundle de.saxsys.roo.xtext.example.somedsl.roo-1.0.0-SNAPSHOT.jar. It contains the DSL jar build before and the class SomeDslXtextLanguage for registering the DSL with xtext4roo. Install and start the bundle in the Spring Roo shell:
+{{{
+osgi install --url file:///{absolute path of de.saxsys.roo.xtext.example.somedsl.roo bundle jar}
+osgi framework command start {bundle id of de.saxsys.roo.xtext.example.somedsl.roo bundle}
+}}}
+  # verify the new bundle is active by typing
+{{{
+osgi ps
+}}}
+  # now you migth create a Roo project and test the DSL. For this, create some file with suffix ".somedsl" in a source folder of the project. It might have a content like this:
+{{{
+Hello Folks ! de.example.FooBar
+}}}
+  # you should see some logging output now which shows that xtext4roo has regognized and parsed your file and provided the parsed content as XtextMetadata
