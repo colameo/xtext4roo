@@ -12,4 +12,13 @@ Additional, it contains classes that allow to integrate Xtext DSLs into Roo.
 
 The folowing steps describe how to install the xtext4roo-wrapper into your Sping Roo Shell:
 
-  * checkout the project xtext4roo with svn
+  # checkout the source into some directory of your choice:
+{{{
+svn checkout http://xtext4roo.googlecode.com/svn/trunk/
+}}}
+  # in trunk/xtext4Roo build the project with Maven (3.0 or above):
+mvn install
+  # in trunk/xtext4Roo/xtext4roo-wrapper/target, you should now have the jar of the xtext4roo-wrapper bundle
+  # start Spring Roo Shell and install the bundle:
+osgi install --url file:///{absolute path of xtext4roo-wrapper bundle jar}
+osgi framework command start {bundle id of  xtext4roo-wrapper bundle}
