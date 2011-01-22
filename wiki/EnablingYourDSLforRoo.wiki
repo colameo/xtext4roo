@@ -5,9 +5,7 @@
   * Create your Xtext project in Eclispe as usual with the Xtext wizard. Define your grammar, run the mwe 
 
 workflow.
-  * In the MANIFEST.mf, set all dependencies to optional. (otherwise there yould be required transitive 
-
-dependencies to Equinox, which leads to bundle resolving errors in Apache Felix)
+  * In the MANIFEST.mf, set all dependencies to optional. (otherwise there yould be required transitive dependencies to Equinox, which leads to bundle resolving errors in Apache Felix)
   * Add an optional require-bundle dependency  to xtext4roo-wrapper
   * The Require-Bundle section in the Manifest.MF of your Xtext language project should now look like this:
 
@@ -31,17 +29,15 @@ Require-Bundle: org.eclipse.xtext;resolution:=optional,
 ...
 }}}
 
-  * copy the pom.xml from our example DSL to your Xtext language project and change the artifact id an name to 
-
-match your project name
+  * copy the pom.xml from our example DSL to your Xtext language project and change the artifact id an name to match your project name
 
   * As a workaround for [https://issuetracker.springsource.com/browse/STS-1318] , do the following:
     * Copy PatchedXtextResourceSet.java from our example DSL to your project, in the same package as the grammar
     * Add the following method to the RuntimeModule class which is also located in the same package as the grammar:
 {{{
-	public Class<? extends XtextResourceSet> bindXtextResourceSet() {
-		return PatchedXtextResourceSet.class;
-	}
+public Class<? extends XtextResourceSet> bindXtextResourceSet() {
+   return PatchedXtextResourceSet.class;
+}
 }}}
 
   * run mvn install (make sure to use Maven 3.0 or above) for your Xtext language project project
@@ -57,25 +53,15 @@ Now you will create a bundle that embeds your DSL jar and adds a class for regis
   * you have to change the following in the POM:
     * artifact ID, project name
     * the dependency to de.saxsys.roo.xtext.example.somedsl must be changed to point to your DSL Maven artifact
-    * in the configuration section of maven-bundle-plugin, the following line must be changed to point to your DSL 
-
-package:
+    * in the configuration section of maven-bundle-plugin, the following line must be changed to point to your DSL package:
 {{{
 <_exportcontents>de.saxsys.roo.xtext.example.somedsl.*</_exportcontents>
 }}}
-    * also in the configuration section of maven-bundle-plugin, the following line must be changed to point to 
-
-your DSL maven artifact:
+    * also in the configuration section of maven-bundle-plugin, the following line must be changed to point to your DSL maven artifact:
 {{{
 <Embed-Dependency>de.saxsys.roo.xtext.example.somedsl</Embed-Dependency>
 }}}
-  * Provide an implementation of de.saxsys.roo.xtext.XtextLanguage and register it as OSGi service with @Component 
-
-and @Service annotations. You can use SomeDslXtextLanguage as example. You just have to change the suffix 
-
-according to your needs and return the Runtime Module of your DSL instead of SomeDslRuntimeModule.
-
-
+  * Provide an implementation of de.saxsys.roo.xtext.XtextLanguage and register it as OSGi service with @Component and @Service annotations. You can use SomeDslXtextLanguage as example. You just have to change the suffix according to your needs and return the Runtime Module of your DSL instead of SomeDslRuntimeModule.
 
   * if not yet done, you should install xtext4roo-wrapper in your Roo Shell now
   * now you can install and activate the DSL by typing the following commands in your Roo Shell:
