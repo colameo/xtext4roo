@@ -1,4 +1,4 @@
-#Describes the nesessary steps to deploy your Xtext DSL in Spring Roo.
+#summary Describes the nesessary steps to deploy your Xtext DSL in Spring Roo.
 
 = The DSL Bundle =
 
@@ -37,9 +37,7 @@ match your project name
 
   * As a workaround for [https://issuetracker.springsource.com/browse/STS-1318] , do the following:
     * Copy PatchedXtextResourceSet.java from our example DSL to your project, in the same package as the grammar
-    * Add the following method to the RuntimeModule class which is also located in the same package as the 
-
-grammar:
+    * Add the following method to the RuntimeModule class which is also located in the same package as the grammar:
 {{{
 	public Class<? extends XtextResourceSet> bindXtextResourceSet() {
 		return PatchedXtextResourceSet.class;
@@ -49,7 +47,6 @@ grammar:
   * run mvn install (make sure to use Maven 3.0 or above) for your Xtext language project project
 
   * now you should have the jar for your DSL in target and in your local Maven repo
-
 
 
 = The DSL-Roo-Integration Bundle =
@@ -83,21 +80,19 @@ according to your needs and return the Runtime Module of your DSL instead of Som
   * if not yet done, you should install xtext4roo-wrapper in your Roo Shell now
   * now you can install and activate the DSL by typing the following commands in your Roo Shell:
 
+{{{
 osgi install --url file:///{absolute path of your DSL-Roo-Interation bundle jar}
 osgi framework command start {bundle id of your DSL-Roo-Interation bundle}
+}}}
 
   * verify the new bundle is active by typing
-
+{{{
 osgi ps
-
+}}}
 From now on, de.saxsys.roo.xtext.XtextMetadata is provided for each file that has the suffix of your DSL and that 
 
 is placed into some source directory of your Roo project.
 
 Now you can write some Metadata Listener for your DSL as shown in SomeDslExampleMetadataListener. While in the 
 
-example, only some logging is done, you likely want to to some code generation. Consult Roo addon development 
-
-documentation for more details on this. Also, you probably want to put your MetadataListener in some other addon 
-
-than the DSL. 
+example, only some logging is done, you likely want to to some code generation. Consult Spring Roo addon development documentation for more details on this. Also, you probably want to put your MetadataListener in some other addon than the DSL. 
