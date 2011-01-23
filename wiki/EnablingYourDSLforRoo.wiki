@@ -3,7 +3,7 @@
 = The DSL Bundle =
 
   * Create your Xtext project in Eclispe as usual with the Xtext wizard. Define your grammar, run the mwe workflow. 
-    * Note: If you want to refer to Java types from your DSL, don't forget to apply the modifiactions to the workflow and to the grammar as described [http://www.eclipse.org/Xtext/documentation/1_0_1/xtext.html#jvmtypes here]. xtext4roo will take care that Java types are also correctly resolved, when your DSL runs within Roo.
+    * _Note: If you want to refer to Java types from your DSL, don't forget to apply the modifiactions to the workflow and to the grammar as described [http://www.eclipse.org/Xtext/documentation/1_0_1/xtext.html#jvmtypes here]. xtext4roo will take care that Java types are also correctly resolved, when your DSL runs within Roo._
   * In the MANIFEST.mf, set all dependencies to optional. (otherwise there yould be required transitive dependencies to Equinox, which leads to bundle resolving errors in Apache Felix)
   * Add an optional require-bundle dependency  to xtext4roo-wrapper
   * The Require-Bundle section in the Manifest.MF of your Xtext language project should now look like this:
