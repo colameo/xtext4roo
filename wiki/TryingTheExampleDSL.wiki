@@ -24,7 +24,7 @@ osgi ps
   # now you can create a Roo project and test the DSL:
     # create the Roo project
     # create a class de.example.FooBar. It's only pupose is to show we can refer to it from the DSL due to the RooTypeProviderFactory provided by xtext4roo wrapper
-    # now, create some file with suffix ".somedsl" in a source folder of the project. It should have a content like this:
+    # now, create some file with suffix ".somedsl" in a source folder or in the root folder of the project. It should have a content like this:
 {{{
 Hello Folks ! de.example.FooBar
 }}}
@@ -38,4 +38,7 @@ Xtext Metadata File Identifier:E:\roo\test\test.somedsl
 Folks de.example.FooBar
 }}}
     * the first line shows that Roo's file monitor has recognized the new file
-    *
+    * the second line shows, how the path of the file is 'encoded' by Roo
+    * the third line shows the metadata that is provided by xtext4roo for the file. Note how the suffix of the DSL and the file path and name is encoded,
+    * the forth line shows, that the SomeDslMetadataListener has registered a dependency from SomeDslExampleMetadata to XtextMetadata, which now leads to a notification
+    * the fith line just shows some logging output of the SomeDslExampleMetadataListener, which shows successful parsing of the DSL file
