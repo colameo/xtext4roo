@@ -2,9 +2,8 @@
 
 = The DSL Bundle =
 
-  * Create your Xtext project in Eclispe as usual with the Xtext wizard. Define your grammar, run the mwe 
-
-workflow.
+  * Create your Xtext project in Eclispe as usual with the Xtext wizard. Define your grammar, run the mwe workflow. 
+    * Note: If you want to refer to Java types from your DSL, don't forget to apply the modifiactions to the workflow and to the grammar as described [http://www.eclipse.org/Xtext/documentation/1_0_1/xtext.html#jvmtypes here]. xtext4roo will take care that Java types are also correctly resolved, when your DSL runs within Roo.
   * In the MANIFEST.mf, set all dependencies to optional. (otherwise there yould be required transitive dependencies to Equinox, which leads to bundle resolving errors in Apache Felix)
   * Add an optional require-bundle dependency  to xtext4roo-wrapper
   * The Require-Bundle section in the Manifest.MF of your Xtext language project should now look like this:
@@ -28,7 +27,7 @@ Require-Bundle: org.eclipse.xtext;resolution:=optional,
 ...
 }}}
 
-  * copy the pom.xml from our example DSL to your Xtext language project and change the artifact id an name to match your project name
+  * Copy the pom.xml from our example DSL to your Xtext language project and change the artifact id an name to match your project name
 
   * As a workaround for [https://issuetracker.springsource.com/browse/STS-1318] , do the following:
     * Copy PatchedXtextResourceSet.java from our example DSL to your project, in the same package as the grammar
@@ -39,36 +38,36 @@ public Class<? extends XtextResourceSet> bindXtextResourceSet() {
 }
 }}}
 
-  * run mvn install (make sure to use Maven 3.0 or above) for your Xtext language project project
+  * Run mvn install (make sure to use Maven 3.0 or above) for your Xtext language project project
 
-  * now you should have the jar for your DSL in target and in your local Maven repo
+  * Now you should have the jar for your DSL in target and in your local Maven repo
 
 
 = The DSL-Roo-Integration Bundle =
 
 Now you will create a bundle that embeds your DSL jar and adds a class for registration in Spring Roo, so that the DSL can be discovered by the XtextMetadataProvider from xtext4roo-wrapper bundle.
 
-  * now create a new Maven project with a POM like in our de.saxsys.roo.xtext.example.somedsl.roo
-  * you have to change the following in the POM:
-    * artifact ID, project name
-    * the dependency to de.saxsys.roo.xtext.example.somedsl must be changed to point to your DSL Maven artifact
-    * in the configuration section of maven-bundle-plugin, the following line must be changed to point to your DSL package:
+  * Now create a new Maven project with a POM like in our de.saxsys.roo.xtext.example.somedsl.roo
+  * You have to change the following in the POM:
+    * Artifact ID, project name
+    * The dependency to de.saxsys.roo.xtext.example.somedsl must be changed to point to your DSL Maven artifact
+    * In the configuration section of maven-bundle-plugin, the following line must be changed to point to your DSL package:
 {{{
 <_exportcontents>de.saxsys.roo.xtext.example.somedsl.*</_exportcontents>
 }}}
-    * also in the configuration section of maven-bundle-plugin, the following line must be changed to point to your DSL maven artifact:
+    * Also in the configuration section of maven-bundle-plugin, the following line must be changed to point to your DSL maven artifact:
 {{{
 <Embed-Dependency>de.saxsys.roo.xtext.example.somedsl</Embed-Dependency>
 }}}
   * Provide an implementation of de.saxsys.roo.xtext.XtextLanguage and register it as OSGi service with @Component and @Service annotations. You can use SomeDslXtextLanguage as example. You just have to change the suffix according to your needs and return the Runtime Module of your DSL instead of SomeDslRuntimeModule.
 
-  * if not yet done, you should install xtext4roo-wrapper in your Roo Shell now (see [InstallXtext4Roo])
-  * now you can install and activate the DSL by typing the following commands in your Roo Shell:
+  * If not yet done, you should install xtext4roo-wrapper in your Roo Shell now (see [InstallXtext4Roo])
+  * Now you can install and activate the DSL by typing the following commands in your Roo Shell:
 {{{
 osgi install --url file:///{absolute path of your DSL-Roo-Interation bundle jar}
 osgi framework command start {bundle id of your DSL-Roo-Interation bundle}
 }}}
-  * verify the new bundle is active by typing
+  * Verify the new bundle is active by typing
 {{{
 osgi ps
 }}}
