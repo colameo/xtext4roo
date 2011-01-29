@@ -59,7 +59,7 @@ Now you will create a bundle that embeds your DSL jar and adds a class for regis
 {{{
 <Embed-Dependency>de.saxsys.roo.xtext.example.somedsl</Embed-Dependency>
 }}}
-  * Provide an implementation of de.saxsys.roo.xtext.XtextLanguage and register it as OSGi service with @Component and @Service annotations. You can use SomeDslXtextLanguage as example. You just have to change the suffix according to your needs and return the Runtime Module of your DSL instead of SomeDslRuntimeModule.
+  * Provide an implementation of de.saxsys.roo.xtext.XtextLanguage and register it as OSGi service with @Component and @Service annotations. You can use [http://code.google.com/p/xtext4roo/source/browse/trunk/exampleDsl/de.saxsys.roo.xtext.example.somedsl.roo/src/main/java/de/saxsys/roo/xtext/example/somedsl/roo/SomeDslXtextLanguage.java SomeDslXtextLanguage] as example. You just have to change the suffix according to your needs and return the Runtime Module of your DSL instead of [http://code.google.com/p/xtext4roo/source/browse/trunk/exampleDsl/de.saxsys.roo.xtext.example.somedsl/src/de/saxsys/roo/xtext/example/somedsl/SomeDslRuntimeModule.java SomeDslRuntimeModule].
 
   * If not yet done, you should install xtext4roo-wrapper in your Roo Shell now (see [InstallXtext4Roo])
   * Now you can install and activate the DSL by typing the following commands in your Roo Shell:
