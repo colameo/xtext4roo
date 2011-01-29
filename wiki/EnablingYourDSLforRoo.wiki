@@ -71,6 +71,7 @@ osgi framework command start {bundle id of your DSL-Roo-Interation bundle}
 {{{
 osgi ps
 }}}
-From now on, de.saxsys.roo.xtext.XtextMetadata is provided for each file that has the suffix of your DSL and that is placed into some source directory of your Roo project.
+From now on, [http://code.google.com/p/xtext4roo/source/browse/trunk/xtext4roo/xtext4roo-wrapper/src/main/java/de/saxsys/roo/xtext/XtextMetadata.java XtextMetadata] is provided for each file that has the suffix of your DSL and that is placed into some source directory of your Roo project.
 
-Now you can write some Metadata Listener for your DSL as shown in SomeDslExampleMetadataListener. While in the example, only some logging is done, you likely want to to some code generation. Consult Spring Roo addon development documentation for more details on this. Also, you probably want to put your MetadataListener in some other addon than the DSL. 
+Now you can write some Metadata Listener for your DSL as shown in 
+[http://code.google.com/p/xtext4roo/source/browse/trunk/exampleDsl/de.saxsys.roo.xtext.example.somedsl.roo/src/main/java/de/saxsys/roo/xtext/example/somedsl/roo/SomeDslExampleMetadataListener.java SomeDslExampleMetadataListener]. While in the example, only some logging is done, you likely want to to some code generation. Consult Spring Roo addon development documentation for more details on this. Also, you probably want to put your MetadataListener in some other addon than the DSL. 
