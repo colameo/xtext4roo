@@ -1,0 +1,32 @@
+<repository lastmodified='20110402105105.343'>
+  <resource id='de.saxsys.roo.wrapping.google-collections/1.0.0001' symbolicname='de.saxsys.roo.wrapping.google-collections' presentationname='de-saxsys-roo-wrapping-googlecollections' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/saxsys/roo/wrapping/de.saxsys.roo.wrapping.google-collections/1.0.0001/de.saxsys.roo.wrapping.google-collections-1.0.0001.jar' version='1.0.1'>
+    <description>This bundle wraps the standard Maven artifact: google-collections-1.0.</description>
+    <size>650497</size>
+    <license>http://www.apache.org/licenses/LICENSE-2.0</license>
+    <capability name='bundle'>
+      <p n='symbolicname' v='de.saxsys.roo.wrapping.google-collections'/>
+      <p n='presentationname' v='de-saxsys-roo-wrapping-googlecollections'/>
+      <p n='version' t='version' v='1.0.0001'/>
+      <p n='manifestversion' v='2'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='com.google.common.collect'/>
+      <p n='version' t='version' v='1.0.0001'/>
+      <p n='uses:' v='com.google.common.base,javax.annotation'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='com.google.common.base'/>
+      <p n='version' t='version' v='1.0.0001'/>
+      <p n='uses:' v='javax.annotation'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='com.google.common.base.internal'/>
+      <p n='version' t='version' v='1.0.0001'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='com.google.common.annotations'/>
+      <p n='version' t='version' v='1.0.0001'/>
+    </capability>
+    <require name='package' filter='(&amp;(package=javax.annotation))' extend='false' multiple='false' optional='false'>Import package javax.annotation</require>
+  </resource>
+</repository>
