@@ -9,7 +9,7 @@
 	<description>This bundle wraps the standard Maven artifact: ${pkgArtifactId}-${pkgVersion}.</description>
 	<properties>
 		<pkgArtifactId>google-collections</pkgArtifactId>
-		<pkgVersion>1.0</pkgVersion>
+		<pkgVersion>1.0.0</pkgVersion>
 		<osgiVersion>${pkgVersion}.0001</osgiVersion>
 		<pkgVendor>Google</pkgVendor>
 		<pkgDocUrl/>
