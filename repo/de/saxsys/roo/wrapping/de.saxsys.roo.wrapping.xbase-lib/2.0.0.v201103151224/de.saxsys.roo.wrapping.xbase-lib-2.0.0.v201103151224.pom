@@ -77,7 +77,7 @@
 					<bundleUrl>httppgp://${google.code.project.name}.googlecode.com/svn/repo/${repo.folder}/${project.artifactId}/${project.version}/${project.artifactId}-${project.version}.jar</bundleUrl>
 					<instructions>
 						<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
-						<Export-Package>*;version=${pom.version}</Export-Package>
+						<Export-Package>org.eclipse.xtext.xbase.lib;version=${pom.version}</Export-Package>
 						<Bundle-Vendor>${pkgVendor} (wrapped into an OSGi bundle by the
 							Spring Roo project build system)</Bundle-Vendor>
 						<Bundle-DocURL>${pkgDocUrl}</Bundle-DocURL>
