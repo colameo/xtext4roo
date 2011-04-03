@@ -1,4 +1,4 @@
-<repository lastmodified='20110403062436.000'>
+<repository lastmodified='20110403062551.609'>
   <resource id='de.saxsys.roo.wrapping.google-collections/1.0.0.0001' symbolicname='de.saxsys.roo.wrapping.google-collections' presentationname='de-saxsys-roo-wrapping-googlecollections' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/saxsys/roo/wrapping/de.saxsys.roo.wrapping.google-collections/1.0.0.0001/de.saxsys.roo.wrapping.google-collections-1.0.0.0001.jar' version='1.0.0.0001'>
     <description>This bundle wraps the standard Maven artifact: google-collections-1.0.0.</description>
     <size>650504</size>
@@ -31,7 +31,7 @@
   </resource>
   <resource id='de.saxsys.roo.wrapping.xbase-lib/2.0.0.v201103151224' symbolicname='de.saxsys.roo.wrapping.xbase-lib' presentationname='Spring Roo wrapper for Xbase Lib' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/saxsys/roo/wrapping/de.saxsys.roo.wrapping.xbase-lib/2.0.0.v201103151224/de.saxsys.roo.wrapping.xbase-lib-2.0.0.v201103151224.jar' version='2.0.0.v201103151224'>
     <description>This bundle wraps the standard Maven artifact: org.eclipse.xtext.xbase.lib-2.0.0.v201103151224.</description>
-    <size>37434</size>
+    <size>31114</size>
     <license>http://www.eclipse.org/legal/epl-v10.html</license>
     <capability name='bundle'>
       <p n='symbolicname' v='de.saxsys.roo.wrapping.xbase-lib'/>
@@ -49,7 +49,7 @@
   </resource>
   <resource id='de.saxsys.roo.wrapping.xtend2-lib/2.0.0.v201103151224' symbolicname='de.saxsys.roo.wrapping.xtend2-lib' presentationname='Spring Roo wrapper for Xtend2 Lib' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/saxsys/roo/wrapping/de.saxsys.roo.wrapping.xtend2-lib/2.0.0.v201103151224/de.saxsys.roo.wrapping.xtend2-lib-2.0.0.v201103151224.jar' version='2.0.0.v201103151224'>
     <description>This bundle wraps the standard Maven artifact: org.eclipse.xtext.xtend2.lib-2.0.0.v201103151224.</description>
-    <size>10028</size>
+    <size>15613</size>
     <license>http://www.eclipse.org/legal/epl-v10.html</license>
     <capability name='bundle'>
       <p n='symbolicname' v='de.saxsys.roo.wrapping.xtend2-lib'/>
