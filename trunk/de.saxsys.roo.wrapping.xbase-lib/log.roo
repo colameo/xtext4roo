@@ -1,4 +1,0 @@
-// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-04-03 16:51:02
-addon create wrapper --topLevelPackage de.saxsys.roo.wrapping --groupId org.eclipse.xtext --artifactId org.eclipse.xtext.xbase.lib --version 2.0.0.v201103151224 --vendorName "Eclipse Foundation" --licenseUrl http://www.eclipse.org/legal/epl-v10.html
-exit
-// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-04-03 16:57:14
