@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.saxsys.roo.wrapping</groupId>
+	<artifactId>${pom.groupId}.${pkgArtifactId}</artifactId>
+	<packaging>bundle</packaging>
+	<version>${osgiVersion}</version>
+	<name>Spring Roo wrapper for Xbase Lib</name>
+	<description>This bundle wraps the standard Maven artifact: org.eclipse.xtext.xbase.lib-${pkgVersion}.</description>
+	<properties>
+		<pkgArtifactId>xbase-lib</pkgArtifactId>
+		<pkgVersion>2.0.0.v201106070531</pkgVersion>
+		<osgiVersion>${pkgVersion}</osgiVersion>
+		<pkgVendor>Eclipse Foundation</pkgVendor>
+		<pkgDocUrl />
+		<pkgLicense>http://www.eclipse.org/legal/epl-v10.html</pkgLicense>
+		<repo.folder>de/saxsys/roo/wrapping</repo.folder>
+		<google.code.project.name>xtext4roo</google.code.project.name>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.xtext</groupId>
+			<artifactId>org.eclipse.xtext.xbase.lib</artifactId>
+			<version>2.0.0.v201106070531</version>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+	<scm>
+		<connection>scm:svn:https://${google.code.project.name}.googlecode.com/svn/trunk</connection>
+		<developerConnection>scm:svn:https://${google.code.project.name}.googlecode.com/svn/trunk</developerConnection>
+		<url>http://code.google.com/p/${google.code.project.name}/source/browse</url>
+	</scm>
+	<repositories>
+		<repository>
+			<id>${google.code.project.name}</id>
+			<url>http://${google.code.project.name}.googlecode.com/svn/repo</url>
+		</repository>
+	</repositories>
+	<distributionManagement>
+		<repository>
+			<id>${google.code.project.name}</id>
+			<url>dav:https://${google.code.project.name}.googlecode.com/svn/repo</url>
+		</repository>
+	</distributionManagement>
+
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<version>1.0-beta-6</version>
+			</extension>
+		</extensions>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<remoteOBR>true</remoteOBR>
+					<bundleUrl>httppgp://${google.code.project.name}.googlecode.com/svn/repo/${repo.folder}/${project.artifactId}/${project.version}/${project.artifactId}-${project.version}.jar</bundleUrl>
+					<instructions>
+						<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+						<Export-Package>org.eclipse.xtext.xbase.lib;version=${pom.version}</Export-Package>
+						<Bundle-Vendor>${pkgVendor} (wrapped into an OSGi bundle by the
+							Spring Roo project build system)</Bundle-Vendor>
+						<Bundle-DocURL>${pkgDocUrl}</Bundle-DocURL>
+						<Bundle-License>${pkgLicense}</Bundle-License>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
