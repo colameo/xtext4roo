@@ -76,8 +76,7 @@
 					<bundleUrl>httppgp://${google.code.project.name}.googlecode.com/svn/repo/${repo.folder}/${project.artifactId}/${project.version}/${project.artifactId}-${project.version}.jar</bundleUrl>
 					<instructions>
 						<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
-						<Export-Package>org.eclipse.xtend2.*;version=${pom.version},org.eclipse.xtext.xbase.*;version=${pom.version}</Export-Package>
-						<!--  <Import-Package>org.eclipse.emf.*;resolution:=optional</Import-Package> -->
+						<Export-Package>org.eclipse.xtend2.*;version=${pom.version},org.eclipse.xtext.xbase.*;version=${pom.version}</Export-Package>					
 						<Bundle-Vendor>${pkgVendor} (wrapped into an OSGi bundle by the
 							Spring Roo project build system)</Bundle-Vendor>
 						<Bundle-DocURL>${pkgDocUrl}</Bundle-DocURL>
