@@ -1,4 +1,4 @@
-<repository lastmodified='20120121041622.453'>
+<repository lastmodified='20120121041825.578'>
   <resource id='de.saxsys.roo.wrapping.google-collections/1.0.0.0001' symbolicname='de.saxsys.roo.wrapping.google-collections' presentationname='de-saxsys-roo-wrapping-googlecollections' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/saxsys/roo/wrapping/de.saxsys.roo.wrapping.google-collections/1.0.0.0001/de.saxsys.roo.wrapping.google-collections-1.0.0.0001.jar' version='1.0.0.0001'>
     <description>This bundle wraps the standard Maven artifact: google-collections-1.0.0.</description>
     <size>650504</size>
@@ -31,7 +31,7 @@
   </resource>
   <resource id='de.stefanocke.roo.wrapping.google-guava/10.0.1.0001' symbolicname='de.stefanocke.roo.wrapping.google-guava' presentationname='Spring Roo wrapper for Google Guava' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/stefanocke/roo/wrapping/de.stefanocke.roo.wrapping.google-guava/10.0.1.0001/de.stefanocke.roo.wrapping.google-guava-10.0.1.0001.jar' version='10.0.1.0001'>
     <description>This bundle wraps the standard Maven artifact: google-guava-10.0.1.</description>
-    <size>1539149</size>
+    <size>1539150</size>
     <license>http://www.apache.org/licenses/LICENSE-2.0</license>
     <capability name='bundle'>
       <p n='symbolicname' v='de.stefanocke.roo.wrapping.google-guava'/>
@@ -141,7 +141,7 @@
   </resource>
   <resource id='de.stefanocke.roo.wrapping.xtend2-lib/2.2.1' symbolicname='de.stefanocke.roo.wrapping.xtend2-lib' presentationname='Spring Roo wrapper for Xtend2 Lib' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/stefanocke/roo/wrapping/de.stefanocke.roo.wrapping.xtend2-lib/2.2.1/de.stefanocke.roo.wrapping.xtend2-lib-2.2.1.jar' version='2.2.1'>
     <description>This bundle wraps the standard Maven artifact: org.eclipse.xtext.xtend2.lib-2.2.1.</description>
-    <size>65241</size>
+    <size>65209</size>
     <license>http://www.eclipse.org/legal/epl-v10.html</license>
     <capability name='bundle'>
       <p n='symbolicname' v='de.stefanocke.roo.wrapping.xtend2-lib'/>
