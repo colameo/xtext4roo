@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.stefanocke.roo.wrapping</groupId>
+	<artifactId>de.stefanocke.roo.wrapping.xtend2-lib</artifactId>
+	<packaging>bundle</packaging>
+	<version>${osgiVersion}</version>
+	<name>Spring Roo wrapper for Xtend2 Lib</name>
+	<description>This bundle wraps the standard Maven artifact: org.eclipse.xtext.xtend2.lib-${pkgVersion}.</description>
+	<properties>
+		<pkgArtifactId>xtend2-lib</pkgArtifactId>
+		<pkgVersion>2.2.1</pkgVersion>
+		<osgiVersion>${pkgVersion}</osgiVersion>
+		<pkgVendor>Eclipse Foundation</pkgVendor>
+		<pkgDocUrl />
+		<pkgLicense>http://www.eclipse.org/legal/epl-v10.html</pkgLicense>
+		<repo.folder>de/stefanocke/roo/wrapping</repo.folder>
+		<google.code.project.name>xtext4roo</google.code.project.name>
+	</properties>
+
+	<dependencies>
+		<dependency>
+		  <groupId>org.eclipse.xtend2</groupId>
+		  <artifactId>org.eclipse.xtend2.lib</artifactId>
+		  <version>2.2.1</version>
+		</dependency>
+	</dependencies>
+	<scm>
+		<connection>scm:svn:https://${google.code.project.name}.googlecode.com/svn/trunk</connection>
+		<developerConnection>scm:svn:https://${google.code.project.name}.googlecode.com/svn/trunk</developerConnection>
+		<url>http://code.google.com/p/${google.code.project.name}/source/browse</url>
+	</scm>
+	<repositories>
+		<repository>
+			<id>xtend</id>
+			<url>http://build.eclipse.org/common/xtend/maven/</url>
+		</repository>
+	</repositories>
+	<distributionManagement>
+		<repository>
+			<id>${google.code.project.name}</id>
+			<url>dav:https://${google.code.project.name}.googlecode.com/svn/repo</url>
+		</repository>
+	</distributionManagement>
+
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<version>1.0-beta-6</version>
+			</extension>
+		</extensions>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<remoteOBR>true</remoteOBR>
+					<bundleUrl>httppgp://${google.code.project.name}.googlecode.com/svn/repo/${repo.folder}/${project.artifactId}/${project.version}/${project.artifactId}-${project.version}.jar</bundleUrl>
+					<instructions>
+						<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+						<Export-Package>org.eclipse.xtend2.*;version=${pom.version},org.eclipse.xtext.xbase.*;version=${pom.version}</Export-Package>
+						<!--  <Import-Package>org.eclipse.emf.*;resolution:=optional</Import-Package> -->
+						<Bundle-Vendor>${pkgVendor} (wrapped into an OSGi bundle by the
+							Spring Roo project build system)</Bundle-Vendor>
+						<Bundle-DocURL>${pkgDocUrl}</Bundle-DocURL>
+						<Bundle-License>${pkgLicense}</Bundle-License>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
