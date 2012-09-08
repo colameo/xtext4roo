@@ -1,4 +1,4 @@
-<repository lastmodified='20120121041825.578'>
+<repository lastmodified='20120908025133.150'>
   <resource id='de.saxsys.roo.wrapping.google-collections/1.0.0.0001' symbolicname='de.saxsys.roo.wrapping.google-collections' presentationname='de-saxsys-roo-wrapping-googlecollections' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/saxsys/roo/wrapping/de.saxsys.roo.wrapping.google-collections/1.0.0.0001/de.saxsys.roo.wrapping.google-collections-1.0.0.0001.jar' version='1.0.0.0001'>
     <description>This bundle wraps the standard Maven artifact: google-collections-1.0.0.</description>
     <size>650504</size>
@@ -103,6 +103,24 @@
     </capability>
     <require name='package' filter='(&amp;(package=sun.misc))' extend='false' multiple='false' optional='true'>Import package sun.misc;resolution:=optional</require>
   </resource>
+  <resource id='de.saxsys.roo.wrapping.xbase-lib/2.0.0.v201103151224' symbolicname='de.saxsys.roo.wrapping.xbase-lib' presentationname='Spring Roo wrapper for Xbase Lib' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/saxsys/roo/wrapping/de.saxsys.roo.wrapping.xbase-lib/2.0.0.v201103151224/de.saxsys.roo.wrapping.xbase-lib-2.0.0.v201103151224.jar' version='2.0.0.v201103151224'>
+    <description>This bundle wraps the standard Maven artifact: org.eclipse.xtext.xbase.lib-2.0.0.v201103151224.</description>
+    <size>31114</size>
+    <license>http://www.eclipse.org/legal/epl-v10.html</license>
+    <capability name='bundle'>
+      <p n='symbolicname' v='de.saxsys.roo.wrapping.xbase-lib'/>
+      <p n='presentationname' v='Spring Roo wrapper for Xbase Lib'/>
+      <p n='version' t='version' v='2.0.0.v201103151224'/>
+      <p n='manifestversion' v='2'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.eclipse.xtext.xbase.lib'/>
+      <p n='version' t='version' v='2.0.0.v201103151224'/>
+      <p n='uses:' v='com.google.common.collect,com.google.common.base'/>
+    </capability>
+    <require name='package' filter='(&amp;(package=com.google.common.base))' extend='false' multiple='false' optional='false'>Import package com.google.common.base</require>
+    <require name='package' filter='(&amp;(package=com.google.common.collect))' extend='false' multiple='false' optional='false'>Import package com.google.common.collect</require>
+  </resource>
   <resource id='de.saxsys.roo.wrapping.xbase-lib/2.0.0.v201106070531' symbolicname='de.saxsys.roo.wrapping.xbase-lib' presentationname='Spring Roo wrapper for Xbase Lib' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/saxsys/roo/wrapping/de.saxsys.roo.wrapping.xbase-lib/2.0.0.v201106070531/de.saxsys.roo.wrapping.xbase-lib-2.0.0.v201106070531.jar' version='2.0.0.v201106070531'>
     <description>This bundle wraps the standard Maven artifact: org.eclipse.xtext.xbase.lib-2.0.0.v201106070531.</description>
     <size>38240</size>
@@ -121,20 +139,34 @@
     <require name='package' filter='(&amp;(package=com.google.common.base))' extend='false' multiple='false' optional='false'>Import package com.google.common.base</require>
     <require name='package' filter='(&amp;(package=com.google.common.collect))' extend='false' multiple='false' optional='false'>Import package com.google.common.collect</require>
   </resource>
-  <resource id='de.saxsys.roo.wrapping.xbase-lib/2.0.0.v201103151224' symbolicname='de.saxsys.roo.wrapping.xbase-lib' presentationname='Spring Roo wrapper for Xbase Lib' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/saxsys/roo/wrapping/de.saxsys.roo.wrapping.xbase-lib/2.0.0.v201103151224/de.saxsys.roo.wrapping.xbase-lib-2.0.0.v201103151224.jar' version='2.0.0.v201103151224'>
-    <description>This bundle wraps the standard Maven artifact: org.eclipse.xtext.xbase.lib-2.0.0.v201103151224.</description>
-    <size>31114</size>
+  <resource id='de.stefanocke.roo.wrapping.xtend2-lib/2.3.1' symbolicname='de.stefanocke.roo.wrapping.xtend2-lib' presentationname='Spring Roo wrapper for Xtend2 Lib' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/stefanocke/roo/wrapping/de.stefanocke.roo.wrapping.xtend2-lib/2.3.1/de.stefanocke.roo.wrapping.xtend2-lib-2.3.1.jar' version='2.3.1'>
+    <description>This bundle wraps the standard Maven artifact: org.eclipse.xtext.xtend2.lib-2.3.1.</description>
+    <size>90266</size>
     <license>http://www.eclipse.org/legal/epl-v10.html</license>
     <capability name='bundle'>
-      <p n='symbolicname' v='de.saxsys.roo.wrapping.xbase-lib'/>
-      <p n='presentationname' v='Spring Roo wrapper for Xbase Lib'/>
-      <p n='version' t='version' v='2.0.0.v201103151224'/>
+      <p n='symbolicname' v='de.stefanocke.roo.wrapping.xtend2-lib'/>
+      <p n='presentationname' v='Spring Roo wrapper for Xtend2 Lib'/>
+      <p n='version' t='version' v='2.3.1'/>
       <p n='manifestversion' v='2'/>
     </capability>
     <capability name='package'>
+      <p n='package' v='org.eclipse.xtend2.lib'/>
+      <p n='version' t='version' v='2.3.1'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.eclipse.xtext.xbase.lib.util'/>
+      <p n='version' t='version' v='2.3.1'/>
+      <p n='uses:' v='com.google.common.base'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.eclipse.xtext.xbase.lib.internal'/>
+      <p n='version' t='version' v='2.3.1'/>
+      <p n='uses:' v='com.google.common.base,org.eclipse.xtext.xbase.lib,org.eclipse.xtext.xbase.lib.util'/>
+    </capability>
+    <capability name='package'>
       <p n='package' v='org.eclipse.xtext.xbase.lib'/>
-      <p n='version' t='version' v='2.0.0.v201103151224'/>
-      <p n='uses:' v='com.google.common.collect,com.google.common.base'/>
+      <p n='version' t='version' v='2.3.1'/>
+      <p n='uses:' v='com.google.common.collect,com.google.common.base,org.eclipse.xtext.xbase.lib.internal'/>
     </capability>
     <require name='package' filter='(&amp;(package=com.google.common.base))' extend='false' multiple='false' optional='false'>Import package com.google.common.base</require>
     <require name='package' filter='(&amp;(package=com.google.common.collect))' extend='false' multiple='false' optional='false'>Import package com.google.common.collect</require>
@@ -166,26 +198,6 @@
     <require name='package' filter='(&amp;(package=com.google.common.base))' extend='false' multiple='false' optional='false'>Import package com.google.common.base</require>
     <require name='package' filter='(&amp;(package=com.google.common.collect))' extend='false' multiple='false' optional='false'>Import package com.google.common.collect</require>
   </resource>
-  <resource id='de.saxsys.roo.wrapping.xtend2-lib/2.0.0.v201103151224' symbolicname='de.saxsys.roo.wrapping.xtend2-lib' presentationname='Spring Roo wrapper for Xtend2 Lib' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/saxsys/roo/wrapping/de.saxsys.roo.wrapping.xtend2-lib/2.0.0.v201103151224/de.saxsys.roo.wrapping.xtend2-lib-2.0.0.v201103151224.jar' version='2.0.0.v201103151224'>
-    <description>This bundle wraps the standard Maven artifact: org.eclipse.xtext.xtend2.lib-2.0.0.v201103151224.</description>
-    <size>15613</size>
-    <license>http://www.eclipse.org/legal/epl-v10.html</license>
-    <capability name='bundle'>
-      <p n='symbolicname' v='de.saxsys.roo.wrapping.xtend2-lib'/>
-      <p n='presentationname' v='Spring Roo wrapper for Xtend2 Lib'/>
-      <p n='version' t='version' v='2.0.0.v201103151224'/>
-      <p n='manifestversion' v='2'/>
-    </capability>
-    <capability name='package'>
-      <p n='package' v='org.eclipse.xtext.xtend2.lib'/>
-      <p n='version' t='version' v='2.0.0.v201103151224'/>
-      <p n='uses:' v='org.eclipse.emf.ecore,org.eclipse.emf.common.util,org.eclipse.emf.ecore.resource,org.eclipse.emf.common.notify'/>
-    </capability>
-    <require name='package' filter='(&amp;(package=org.eclipse.emf.common.notify))' extend='false' multiple='false' optional='true'>Import package org.eclipse.emf.common.notify;resolution:=optional</require>
-    <require name='package' filter='(&amp;(package=org.eclipse.emf.common.util))' extend='false' multiple='false' optional='true'>Import package org.eclipse.emf.common.util;resolution:=optional</require>
-    <require name='package' filter='(&amp;(package=org.eclipse.emf.ecore))' extend='false' multiple='false' optional='true'>Import package org.eclipse.emf.ecore;resolution:=optional</require>
-    <require name='package' filter='(&amp;(package=org.eclipse.emf.ecore.resource))' extend='false' multiple='false' optional='true'>Import package org.eclipse.emf.ecore.resource;resolution:=optional</require>
-  </resource>
   <resource id='de.saxsys.roo.wrapping.xtend2-lib/2.0.0.v201106070531' symbolicname='de.saxsys.roo.wrapping.xtend2-lib' presentationname='Spring Roo wrapper for Xtend2 Lib' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/saxsys/roo/wrapping/de.saxsys.roo.wrapping.xtend2-lib/2.0.0.v201106070531/de.saxsys.roo.wrapping.xtend2-lib-2.0.0.v201106070531.jar' version='2.0.0.v201106070531'>
     <description>This bundle wraps the standard Maven artifact: org.eclipse.xtext.xtend2.lib-2.0.0.v201106070531.</description>
     <size>10873</size>
@@ -199,6 +211,26 @@
     <capability name='package'>
       <p n='package' v='org.eclipse.xtext.xtend2.lib'/>
       <p n='version' t='version' v='2.0.0.v201106070531'/>
+      <p n='uses:' v='org.eclipse.emf.ecore,org.eclipse.emf.common.util,org.eclipse.emf.ecore.resource,org.eclipse.emf.common.notify'/>
+    </capability>
+    <require name='package' filter='(&amp;(package=org.eclipse.emf.common.notify))' extend='false' multiple='false' optional='true'>Import package org.eclipse.emf.common.notify;resolution:=optional</require>
+    <require name='package' filter='(&amp;(package=org.eclipse.emf.common.util))' extend='false' multiple='false' optional='true'>Import package org.eclipse.emf.common.util;resolution:=optional</require>
+    <require name='package' filter='(&amp;(package=org.eclipse.emf.ecore))' extend='false' multiple='false' optional='true'>Import package org.eclipse.emf.ecore;resolution:=optional</require>
+    <require name='package' filter='(&amp;(package=org.eclipse.emf.ecore.resource))' extend='false' multiple='false' optional='true'>Import package org.eclipse.emf.ecore.resource;resolution:=optional</require>
+  </resource>
+  <resource id='de.saxsys.roo.wrapping.xtend2-lib/2.0.0.v201103151224' symbolicname='de.saxsys.roo.wrapping.xtend2-lib' presentationname='Spring Roo wrapper for Xtend2 Lib' uri='httppgp://xtext4roo.googlecode.com/svn/repo/de/saxsys/roo/wrapping/de.saxsys.roo.wrapping.xtend2-lib/2.0.0.v201103151224/de.saxsys.roo.wrapping.xtend2-lib-2.0.0.v201103151224.jar' version='2.0.0.v201103151224'>
+    <description>This bundle wraps the standard Maven artifact: org.eclipse.xtext.xtend2.lib-2.0.0.v201103151224.</description>
+    <size>15613</size>
+    <license>http://www.eclipse.org/legal/epl-v10.html</license>
+    <capability name='bundle'>
+      <p n='symbolicname' v='de.saxsys.roo.wrapping.xtend2-lib'/>
+      <p n='presentationname' v='Spring Roo wrapper for Xtend2 Lib'/>
+      <p n='version' t='version' v='2.0.0.v201103151224'/>
+      <p n='manifestversion' v='2'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.eclipse.xtext.xtend2.lib'/>
+      <p n='version' t='version' v='2.0.0.v201103151224'/>
       <p n='uses:' v='org.eclipse.emf.ecore,org.eclipse.emf.common.util,org.eclipse.emf.ecore.resource,org.eclipse.emf.common.notify'/>
     </capability>
     <require name='package' filter='(&amp;(package=org.eclipse.emf.common.notify))' extend='false' multiple='false' optional='true'>Import package org.eclipse.emf.common.notify;resolution:=optional</require>
