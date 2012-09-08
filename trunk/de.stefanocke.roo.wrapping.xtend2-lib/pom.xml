@@ -10,7 +10,7 @@
 	<description>This bundle wraps the standard Maven artifact: org.eclipse.xtext.xtend2.lib-${pkgVersion}.</description>
 	<properties>
 		<pkgArtifactId>xtend2-lib</pkgArtifactId>
-		<pkgVersion>2.2.1</pkgVersion>
+		<pkgVersion>2.3.1</pkgVersion>
 		<osgiVersion>${pkgVersion}</osgiVersion>
 		<pkgVendor>Eclipse Foundation</pkgVendor>
 		<pkgDocUrl />
@@ -21,9 +21,9 @@
 
 	<dependencies>
 		<dependency>
-		  <groupId>org.eclipse.xtend2</groupId>
-		  <artifactId>org.eclipse.xtend2.lib</artifactId>
-		  <version>2.2.1</version>
+		  <groupId>org.eclipse.xtend</groupId>
+		  <artifactId>org.eclipse.xtend.lib</artifactId>
+		  <version>2.3.1</version>
 		</dependency>
 	</dependencies>
 	<scm>
