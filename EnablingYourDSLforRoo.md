@@ -1,0 +1,75 @@
+# The DSL Bundle #
+
+  * Create your Xtext project in Eclispe as usual with the Xtext wizard. Define your grammar, run the MWE workflow.
+    * _Note: If you want to refer to Java types from your DSL, don't forget to apply the modifications to the workflow and to the grammar as described [here](http://www.eclipse.org/Xtext/documentation/1_0_1/xtext.html#jvmtypes). xtext4roo will take care that Java types are also correctly resolved, when your DSL runs within Roo._
+  * In the MANIFEST.mf, set all dependencies to optional. (otherwise there would be required transitive dependencies to Equinox, which leads to bundle resolving errors in Apache Felix)
+  * Add an optional require-bundle dependency  to xtext4roo-wrapper
+  * The Require-Bundle section in the Manifest.MF of your Xtext language project should now look like this:
+```
+...
+Require-Bundle: org.eclipse.xtext;resolution:=optional,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ com.ibm.icu;resolution:=optional,
+ org.eclipse.xtext.xtend;resolution:=optional,
+ org.eclipse.xtext.util;resolution:=optional,
+ org.eclipse.emf.ecore;resolution:=optional,
+ org.eclipse.emf.ecore.xmi;resolution:=optional,
+ org.eclipse.emf.common;resolution:=optional,
+ org.antlr.runtime;resolution:=optional,
+ org.eclipse.xtext.common.types;resolution:=optional,
+ de.saxsys.roo.xtext4roo-wrapper;resolution:=optional
+...
+```
+
+  * Copy the pom.xml from our example DSL to your Xtext language project and change the artifact id an name to match your project name
+
+  * As a workaround for https://issuetracker.springsource.com/browse/STS-1318 , do the following:
+    * Copy PatchedXtextResourceSet.java from our example DSL to your project, in the same package as the grammar
+    * Add the following method to the RuntimeModule class which is also located in the same package as the grammar:
+```
+public Class<? extends XtextResourceSet> bindXtextResourceSet() {
+   return PatchedXtextResourceSet.class;
+}
+```
+
+  * Run mvn install (make sure to use Maven 3.0 or above) for your Xtext language project project
+
+  * Now you should have the jar for your DSL in target and in your local Maven repo
+
+
+# The DSL-Roo-Integration Bundle #
+
+Now you will create a bundle that embeds your DSL jar and adds a class for registration in Spring Roo, so that the DSL can be discovered by the XtextMetadataProvider from xtext4roo-wrapper bundle.
+
+  * Now create a new Maven project with a POM like in our de.saxsys.roo.xtext.example.somedsl.roo
+  * You have to change the following in the POM:
+    * Artifact ID, project name
+    * The dependency to de.saxsys.roo.xtext.example.somedsl must be changed to point to your DSL Maven artifact
+    * In the configuration section of maven-bundle-plugin, the following line must be changed to point to your DSL package:
+```
+<_exportcontents>de.saxsys.roo.xtext.example.somedsl.*</_exportcontents>
+```
+    * Also in the configuration section of maven-bundle-plugin, the following line must be changed to point to your DSL maven artifact:
+```
+<Embed-Dependency>de.saxsys.roo.xtext.example.somedsl</Embed-Dependency>
+```
+  * Provide an implementation of de.saxsys.roo.xtext.XtextLanguage and register it as OSGi service with @Component and @Service annotations. You can use [SomeDslXtextLanguage](http://code.google.com/p/xtext4roo/source/browse/trunk/exampleDsl/de.saxsys.roo.xtext.example.somedsl.roo/src/main/java/de/saxsys/roo/xtext/example/somedsl/roo/SomeDslXtextLanguage.java) as example. You just have to change the suffix according to your needs and return the Runtime Module of your DSL instead of [SomeDslRuntimeModule](http://code.google.com/p/xtext4roo/source/browse/trunk/exampleDsl/de.saxsys.roo.xtext.example.somedsl/src/de/saxsys/roo/xtext/example/somedsl/SomeDslRuntimeModule.java).
+
+  * If not yet done, you should install xtext4roo-wrapper in your Roo Shell now (see [InstallXtext4Roo](InstallXtext4Roo.md))
+  * Now you can install and activate the DSL by typing the following commands in your Roo Shell:
+```
+osgi install --url file:///{absolute path of your DSL-Roo-Interation bundle jar}
+osgi framework command start {bundle id of your DSL-Roo-Interation bundle}
+```
+  * Verify the new bundle is active by typing
+```
+osgi ps
+```
+From now on, [XtextMetadata](http://code.google.com/p/xtext4roo/source/browse/trunk/xtext4roo/xtext4roo-wrapper/src/main/java/de/saxsys/roo/xtext/XtextMetadata.java) is provided for each file that has the suffix of your DSL and that is placed into some source directory of your Roo project.
+
+Now you can write some [MetadataNotificationListener](http://static.springsource.org/spring-roo/org.springframework.roo.metadata/apidocs/org/springframework/roo/metadata/MetadataNotificationListener.html) / [MetadataProvider](http://static.springsource.org/spring-roo/org.springframework.roo.metadata/apidocs/org/springframework/roo/metadata/MetadataProvider.html) for your DSL as shown in
+[SomeDslExampleMetadataListener](http://code.google.com/p/xtext4roo/source/browse/trunk/exampleDsl/de.saxsys.roo.xtext.example.somedsl.roo/src/main/java/de/saxsys/roo/xtext/example/somedsl/roo/SomeDslExampleMetadataListener.java). While in the example, only some logging is done, you likely want to to some code generation. Consult [Spring Roo addon development documentation](http://static.springsource.org/spring-roo/reference/html/advanced-addons.html) for more details on this. Also, you probably want to put your Metadata Provider for code generation in some other addon than the DSL.

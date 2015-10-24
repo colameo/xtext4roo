@@ -1,0 +1,42 @@
+In exampleDsl directory you find a trivial DSL and its Roo integration. There is also a MetadataListener included, which shows some log output in the Roo shell, if DSL files are created or changed in the roo project.
+
+To use the example DSL in Roo:
+  1. if not done yet: [InstallXtext4Roo](InstallXtext4Roo.md).
+  1. in the source code, go to project exampleDsl/de.saxsys.roo.xtext.example.somedsl and build it with Maven 3 or above:
+```
+mvn install
+```
+  1. now go to to exampleDsl/de.saxsys.roo.xtext.example.somedsl.roo and build it
+```
+mvn install
+```
+  1. under target directory you now have the OSGi bundle de.saxsys.roo.xtext.example.somedsl.roo-1.0.0-SNAPSHOT.jar. It contains the DSL jar build before and the class SomeDslXtextLanguage for registering the DSL with xtext4roo. Install and start the bundle in the Spring Roo shell:
+```
+osgi install --url file:///{absolute path of de.saxsys.roo.xtext.example.somedsl.roo bundle jar}
+osgi framework command start {bundle id of de.saxsys.roo.xtext.example.somedsl.roo bundle}
+```
+  1. verify the new bundle is active by typing
+```
+osgi ps
+```
+  1. now you can create a Roo project and test the DSL:
+    1. create the Roo project
+    1. create a class de.example.FooBar. It's only pupose is to show we can refer to it from the DSL due to the RooTypeProviderFactory provided by xtext4roo wrapper
+    1. now, create some file with suffix ".somedsl" in a source folder or in the root folder of the project. It should have a content like this:
+```
+Hello Folks ! de.example.FooBar
+```
+  1. you should see some logging output similar to this:
+```
+Xtext File event: [FileEvent@db28fc fileDetails = [FileDetails@5fea11 file = E:\roo\test\test.somedsl, exists = true, lastModified = 'Sun Jan 23 00:37:15 CET 2011'], operation = CREATED, previousName = [null]]
+Xtext File source path: ROOT, relative path: \test.somedsl
+Xtext Metadata ID:MID:de.saxsys.roo.xtext.XtextMetadata#somedsl#ROOT?test
+Notify: MID:de.saxsys.roo.xtext.XtextMetadata#somedsl#ROOT?test MID:de.saxsys.roo.xtext.example.somedsl.roo.SomeDslExampleMetadata
+Xtext Metadata File Identifier:E:\roo\test\test.somedsl
+Folks de.example.FooBar
+```
+    * the first line shows that Roo's file monitor has recognized the new file
+    * the second line shows, how the path of the file is 'encoded' by Roo
+    * the third line shows the metadata that is provided by xtext4roo for the file. Note how the suffix of the DSL and the file path and name are encoded,
+    * the forth line shows, that the SomeDslMetadataListener has registered a dependency from SomeDslExampleMetadata to XtextMetadata, which now leads to a notification
+    * the fith line just shows some logging output of the SomeDslExampleMetadataListener, which shows successful parsing of the DSL file
